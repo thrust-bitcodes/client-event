@@ -1,0 +1,12 @@
+{
+  "description": "Client Event Bitcode",
+  "name": "clientevent",
+  "path": "index.js",
+  "version": "1.0.0",
+  "author": "Cleverson Puche",
+  "dependencies": {
+    "jars": [
+      "com.corundumstudio.socketio:netty-socketio:jar:1.7.7"
+    ]
+  }
+}
