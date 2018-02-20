@@ -12,7 +12,7 @@
  */
 function start(onClientConnectFunction, onClientDisconnectFunction) {
   var socketIOServerInstance
-  var config = getBitcodeConfig('clientevent')  
+  var bitCodeConfig = getConfig()['client-event']
 
   var Configuration = Java.type('com.corundumstudio.socketio.Configuration')
   var SocketIOServer = Java.type('com.corundumstudio.socketio.SocketIOServer')
@@ -21,15 +21,17 @@ function start(onClientConnectFunction, onClientDisconnectFunction) {
   var File = Java.type('java.io.File')
 
   var sokcetIOServerConfig = new Configuration()
-  
-  sokcetIOServerConfig.setPort(config.port)
 
-  if (config.useSecureAuthentication) {
+  show(bitCodeConfig)
+
+  sokcetIOServerConfig.setPort(bitCodeConfig.port)
+
+  if (bitCodeConfig.useSecureAuthentication) {
     var currentDir = new File("").getAbsolutePath()
-    var fileInputStream = new java.io.FileInputStream(new File(currentDir + File.separator + config.keyStoreFileName))
+    var fileInputStream = new java.io.FileInputStream(new File(currentDir + File.separator + bitCodeConfig.keyStoreFileName))
 
     sokcetIOServerConfig.setKeyStore(fileInputStream)
-    sokcetIOServerConfig.setKeyStorePassword(config.keyStorePassword)
+    sokcetIOServerConfig.setKeyStorePassword(bitCodeConfig.keyStorePassword)
   }
 
   socketIOServerInstance = new SocketIOServer(sokcetIOServerConfig)
@@ -67,7 +69,7 @@ function start(onClientConnectFunction, onClientDisconnectFunction) {
   socketIOServerInstance.start()
 
   print('\n==============================================')
-  print("ClientEvent server started at port: " + config.port)
+  print("ClientEvent server started at port: " + bitCodeConfig.port)
   print('==============================================\n')
 
   return socketIOServerInstance
@@ -123,7 +125,7 @@ function getRoomClients(socketIOServerInstance, roomName) {
   return roomClients
 }
 
-/** 
+/**
  * Devolve a instância de uma room (sala) para que operações sob a mesma possam ser feitas
  * @param {Object} socketIOServerInstance - Instância de SocketIOServer
  * @param {String} roomName - Nome da sala
