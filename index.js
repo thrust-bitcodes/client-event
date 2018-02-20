@@ -171,3 +171,13 @@ function stop(socketIOServerInstance) {
     socketIOServerInstance.stop()
   }
 }
+
+exports = {
+  start: start,
+  joinRoom: joinRoom,
+  leaveRoom: leaveRoom,
+  getRoomClients: getRoomClients,
+  getRoom: getRoom,
+  getAllClients: getAllClients,
+  stop: stop
+}
