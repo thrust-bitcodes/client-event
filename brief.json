@@ -6,7 +6,7 @@
   "author": "Cleverson Puche",
   "dependencies": {
     "jars": [
-      "com.corundumstudio.socketio:netty-socketio:jar:1.7.7"
+      "com.corundumstudio.socketio:netty-socketio:1.7.7"
     ]
   }
 }
