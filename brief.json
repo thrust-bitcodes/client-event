@@ -2,7 +2,7 @@
   "description": "Client Event Bitcode",
   "name": "clientevent",
   "path": "index.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Cleverson Puche",
   "dependencies": {
     "jars": [
@@ -16,7 +16,12 @@
       "io.netty:netty-codec-http:4.1.21.Final",
       "io.netty:netty-codec:4.1.21.Final",
       "io.netty:netty-transport-native-epoll:4.1.21.Final",
-      "org.slf4j:slf4j-api:1.7.25"
+      "org.slf4j:slf4j-api:1.7.25",
+
+      "com.fasterxml.jackson.core:jackson-annotations:2.9.4",
+      "com.fasterxml.jackson.core:jackson-core:2.9.4",
+      "io.netty:netty-resolver:4.1.21.Final",
+      "io.netty:netty-transport-native-unix-common:4.1.21.Final"
     ]
   }
 }
